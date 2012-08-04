@@ -22,7 +22,7 @@ namespace WpfZhihui
         public TV()
         {
             InitializeComponent();
-
+            
         }
         private void rdDongfangweishi_Checked(object sender, RoutedEventArgs e)
         {
