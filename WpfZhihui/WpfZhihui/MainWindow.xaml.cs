@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using System.Windows.Controls.DataVisualization.Charting;
 
 namespace WpfZhihui
 {
@@ -23,5 +25,50 @@ namespace WpfZhihui
         {
             InitializeComponent();
         }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            //string path=Directory.GetParent(System.Environment.CurrentDirectory + @"/html.htm").Parent.Parent.ToString();
+            //webBrowser1.Navigate(
+            //    new Uri(System.Environment.CurrentDirectory + @"/html.htm",
+            //        UriKind.RelativeOrAbsolute));//获取根目录的日历文件  
+            DirectoryInfo di = new DirectoryInfo(System.Environment.CurrentDirectory);
+            string path = di.Parent.Parent.FullName;
+            ds = new Basic();
+            webBrowser1.Navigate(new Uri(path + @"/aaa.html", UriKind.RelativeOrAbsolute));//获取根目录的日历文件
+            webBrowser1.ObjectForScripting = ds;//该对象可由显示在WebBrowser控件中的网页所包含的脚本代码访问
+            
+        }
+        public Basic ds;
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            label1.Content = ds.Name;
+            ((LineSeries)mcChart.Series[0]).ItemsSource = new KeyValuePair<int, int>[]
+            {
+                new KeyValuePair<int, int>(1, 100),
+                new KeyValuePair<int, int>(2, 130),
+                new KeyValuePair<int, int>(3, 150),
+                new KeyValuePair<int, int>(4, 125)
+            };
+
+
+        }
     }
+
+    [System.Runtime.InteropServices.ComVisibleAttribute(true)]//将该类设置为com可访问
+    public class Basic
+    {
+        public static string name;
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+        public void ClickEvent(string str)
+        {
+            this.Name = str + "hello";
+        }
+    }
+
 }
