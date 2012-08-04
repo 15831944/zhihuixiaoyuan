@@ -107,6 +107,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="html\zhiboCCTV13.htm" />
     <Content Include="html\zhiboCCTV5.htm" />
     <Content Include="html\zhiboDongfangweishi.htm" />
     <Content Include="html\zhiboWuxingtiyu.htm" />

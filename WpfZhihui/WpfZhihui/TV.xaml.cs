@@ -22,12 +22,10 @@ namespace WpfZhihui
         public TV()
         {
             InitializeComponent();
-            //listView1.Items.Add(ListViewItem);
+
         }
         private void rdDongfangweishi_Checked(object sender, RoutedEventArgs e)
         {
-            rdCCTV5.IsChecked = false;
-            rdWuxingtiyu.IsChecked = false;
             DirectoryInfo di = new DirectoryInfo(System.Environment.CurrentDirectory);
             string strPath = di.Parent.Parent.FullName;
             webBrowserTV.Navigate(new Uri(strPath + @"/html/zhiboDongfangweishi.htm", UriKind.RelativeOrAbsolute));
@@ -35,8 +33,6 @@ namespace WpfZhihui
 
         private void rdWuxingtiyu_Checked(object sender, RoutedEventArgs e)
         {
-            rdDongfangweishi.IsChecked = false;
-            rdCCTV5.IsChecked = false;
             DirectoryInfo di = new DirectoryInfo(System.Environment.CurrentDirectory);
             string strPath = di.Parent.Parent.FullName;
             webBrowserTV.Navigate(new Uri(strPath + @"/html/zhiboWuxingtiyu.htm", UriKind.RelativeOrAbsolute));
@@ -44,11 +40,16 @@ namespace WpfZhihui
 
         private void rdCCTV5_Checked(object sender, RoutedEventArgs e)
         {
-            rdWuxingtiyu.IsChecked = false;
-            rdDongfangweishi.IsChecked = false;
             DirectoryInfo di = new DirectoryInfo(System.Environment.CurrentDirectory);
             string strPath = di.Parent.Parent.FullName;
             webBrowserTV.Navigate(new Uri(strPath + @"/html/zhiboCCTV5.htm", UriKind.RelativeOrAbsolute));
+        }
+
+        private void rdCCTV13_Checked(object sender, RoutedEventArgs e)
+        {
+            DirectoryInfo di = new DirectoryInfo(System.Environment.CurrentDirectory);
+            string strPath = di.Parent.Parent.FullName;
+            webBrowserTV.Navigate(new Uri(strPath + @"/html/zhiboCCTV13.htm", UriKind.RelativeOrAbsolute));
         }
     }
 }

@@ -11,14 +11,16 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <RadioButton Grid.Row="0" Name="rdDongfangweishi" Checked="rdDongfangweishi_Checked">东方卫视</RadioButton>
                     <RadioButton Grid.Row="1" Name="rdWuxingtiyu" Checked="rdWuxingtiyu_Checked">五星体育</RadioButton>
                     <RadioButton Grid.Row="2" Name="rdCCTV5" Checked="rdCCTV5_Checked">CCTV5</RadioButton>
+                    <RadioButton Grid.Row="3" Name="rdCCTV13" Checked="rdCCTV13_Checked">CCTV13</RadioButton>
                 </Grid>
             </Expander.Content>
 
         </Expander>
-        <ListView Height="100" HorizontalAlignment="Left" Margin="358,510,0,0" Name="listView1" VerticalAlignment="Top" Width="120" />
+
     </Grid>
 </Window>
