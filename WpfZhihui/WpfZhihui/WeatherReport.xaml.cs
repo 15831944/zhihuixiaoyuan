@@ -33,7 +33,26 @@ namespace WpfZhihui
             BitmapImage image = new BitmapImage(new Uri(strPath + @"/weatherlogo/a_" + strWeather[8], UriKind.RelativeOrAbsolute));
             image1.Source = image;
             label1.Content = strWeather[6];
-            label2.Content = strWeather[10].Split('；');
+            string str = (strWeather[10].Split('；'))[0];
+            label2.Content = (str.Split('：'))[2];
+            label3.Content = "上次监测：" + (strWeather[4].Split(' '))[1];
+            label4.Content = (strWeather[10].Split('；'))[2];
+            label5.Content = (strWeather[10].Split('；'))[1];
+            label6.Content = (strWeather[10].Split('；'))[3];
+            label7.Content = (strWeather[10].Split('；'))[4];
+
+            label8.Content = (strWeather[6].Split(' '))[0];
+            label9.Content = (strWeather[13].Split(' '))[0];
+            label10.Content = (strWeather[18].Split(' '))[0];
+            image = new BitmapImage(new Uri(strPath + @"/weatherlogo/b_" + strWeather[8], UriKind.RelativeOrAbsolute));
+            image2.Source = image;
+            image = new BitmapImage(new Uri(strPath + @"/weatherlogo/b_" + strWeather[15], UriKind.RelativeOrAbsolute));
+            image3.Source = image;
+            image = new BitmapImage(new Uri(strPath + @"/weatherlogo/b_" + strWeather[20], UriKind.RelativeOrAbsolute));
+            image4.Source = image;
+            label11.Content = strWeather[5];
+            label12.Content = strWeather[12];
+            label13.Content = strWeather[17];
         }
 
         
