@@ -1,0 +1,30 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><!-- saved from url=(0014)about:internet -->
+<html>
+<html>
+	<head>
+		<title>突发事件</title>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+	</head>
+<body>
+<div style="width:520px;height:340px;border:1px solid gray" id="container"></div>
+<div id="div1" onClick="Selec1();">火灾</div>
+<div id="div2" onClick="Selec2();">突发事件</div>
+</body>
+</html>
+<script type="text/javascript">
+    var map = new BMap.Map("container");            // 创建Map实例
+    var point = new BMap.Point(116.404, 39.915);    // 创建点坐标
+    map.centerAndZoom(point, 15);                     // 初始化地图,设置中心点坐标和地图级别。
+</script>
+<script>
+    function Selec1() {
+        var div1 = document.getElementById('div1').innerText;
+        window.external.ClickEvent(div1);
+        alert(window.external.name);
+    }
+    function Selec2() {
+        var div2 = document.getElementById('div2').innerText;
+        window.external.ClickEvent(div2);
+        alert(window.external.name);
+    }
+</script>
