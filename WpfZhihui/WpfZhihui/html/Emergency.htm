@@ -19,6 +19,11 @@
     map.addControl(new BMap.ScaleControl());
 </script>
 <script type="text/javascript">
+    $(document).ready(function () {
+        var div1 = document.getElementById('div1').innerText;
+    window.external.ClickEvent(div1);
+    Addpoint();
+}); 
     function Selec1() {
         var div1 = document.getElementById('div1').innerText;
         window.external.ClickEvent(div1);
@@ -46,14 +51,9 @@
             map.addOverlay(marker);
             var label = new BMap.Label(text, { offset: new BMap.Size(20, -10) });
             marker.setLabel(label);
-
             var sContent =
             "<div><h4 style='margin:0 0 5px 0;padding:0.2em 0'>" + text + "</h4>" +
             "<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em;width:200px;'>" + description + "</p>" +
-            "<select id='ui_element' onchange='change(this)'><option value='A' selected>-全部-</option><option value='3'>学前教育</option>" +
-            "<option value='4'>小学教育</option><option value='5'>初中教育</option><option value='6'>高中教育</option>" +
-            "<option value='7'>大学教育</option><option value='8'>专升本</option><option value='9'>留学</option><option value='10'>艺术</option></select>" +
-            "<a class='tiaotiao' name='search' href='/SearchResult.aspx?Lo=" + point1.lng + "&La=" + point1.lat + "'>跳一跳</a>"
             "</div>";
 
             var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
