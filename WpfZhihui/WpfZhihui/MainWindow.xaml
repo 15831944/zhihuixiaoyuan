@@ -5,8 +5,13 @@
         xmlns:dv="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
         Title="MainWindow" Height="500" Width="827" xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts">
     <Grid Loaded="Grid_Loaded">
-        <WebBrowser Height="141" HorizontalAlignment="Left" Margin="12,65,0,0" Name="webBrowser1" VerticalAlignment="Top" Width="781" SnapsToDevicePixels="False" />
-        <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="113,23,0,0" Name="label1" VerticalAlignment="Top" Width="160" />
+        <TextBlock>
+    <Hyperlink NavigateUri="http://www.google.co.in" RequestNavigate="Hyperlink_RequestNavigate">
+            Click here
+</Hyperlink>
+        </TextBlock>
+        <WebBrowser Height="143" HorizontalAlignment="Left" Margin="12,65,0,0" Name="webBrowser1" VerticalAlignment="Top" Width="383" SnapsToDevicePixels="False" />
+        <Label Content="Label" Height="28" HorizontalAlignment="Right" Margin="0,23,532,0" Name="label1" VerticalAlignment="Top" Width="160" />
         <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="320,28,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
         
         <dc:Chart Canvas.Top="80" Canvas.Left="10" Name="mcChart" Background="LightSteelBlue" Margin="12,222,12,12">
@@ -17,6 +22,6 @@
                 </dc:LineSeries>
             </dc:Chart.Series>
         </dc:Chart>
-
+        <Image Height="196" HorizontalAlignment="Left" Margin="417,12,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="365" Source="/WpfZhihui;component/bin/Debug/201208041620.png" />
     </Grid>
 </Window>
