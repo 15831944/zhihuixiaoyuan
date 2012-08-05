@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using System.Net;
 
 namespace WpfZhihui
 {
@@ -53,8 +54,70 @@ namespace WpfZhihui
             label11.Content = strWeather[5];
             label12.Content = strWeather[12];
             label13.Content = strWeather[17];
+
+            System.Net.WebClient wc = new System.Net.WebClient();
+
+            DateTime nowtime = DateTime.Now;
+            string timeStr = nowtime.ToString("yyyyMMddHHmm");
+            string minute = DateTime.Now.Minute.ToString();
+            int minuteInt = Convert.ToInt32(minute);
+            int model = minuteInt - minuteInt % 6 + 2;
+            string modelstr = model.ToString("D2");
+            timeStr = timeStr.Substring(0, 10) + modelstr;
+            string imgPath = @"http://www.soweather.com/PicFiles/wd" + timeStr + @".png";
+
+            while (!RemoteFileExists(imgPath))
+            {
+                nowtime = nowtime.AddMinutes(-6);
+                timeStr = nowtime.ToString("yyyyMMddHHmm");
+                minute = nowtime.Minute.ToString();
+                minuteInt = Convert.ToInt32(minute);
+                model = minuteInt - minuteInt % 6 + 2;
+                modelstr = model.ToString("D2");
+                timeStr = timeStr.Substring(0, 10) + modelstr;
+                imgPath = @"http://www.soweather.com/PicFiles/wd" + timeStr + @".png";
+            }
+            /*
+            wc.DownloadFile(new Uri(imgPath), timeStr + @".png");
+            FileInfo fileInfo = new FileInfo(timeStr + @".png");
+
+            DirectoryInfo diDebug = new DirectoryInfo(System.Environment.CurrentDirectory);
+            string strPath = diDebug.FullName;
+            image1.Source = new BitmapImage(new Uri(diDebug+@"\"+timeStr+@".png", UriKind.RelativeOrAbsolute));
+            */
+
+            Uri uri = new Uri(imgPath, UriKind.Absolute);
+            BitmapImage bmp = new BitmapImage(uri);
+            imageWeather.Source = bmp;
         }
 
-        
+        private bool RemoteFileExists(string fileUri)
+        {
+            bool result = false;//下载结果
+
+            WebResponse response = null;
+            try
+            {
+                WebRequest req = WebRequest.Create(fileUri);
+
+                response = req.GetResponse();
+
+                result = response == null ? false : true;
+
+            }
+            catch (Exception ex)
+            {
+                result = false;
+            }
+            finally
+            {
+                if (response != null)
+                {
+                    response.Close();
+                }
+            }
+
+            return result;
+        }
     }
 }
