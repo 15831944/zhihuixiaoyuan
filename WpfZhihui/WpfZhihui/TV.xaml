@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="686" Width="550" ResizeMode="CanResizeWithGrip">
     <Grid Width="520">
-        <WebBrowser Height="480" HorizontalAlignment="Center"  Name="webBrowserTV" VerticalAlignment="Top" Width="500"/>
+        <WebBrowser Height="353" HorizontalAlignment="Center"  Name="webBrowserTV" VerticalAlignment="Top" Width="256" Margin="10,0,254,0" />
         <Expander Header="TV Station" Height="100" HorizontalAlignment="Left" Margin="12,486,0,0" Name="expanderTV" VerticalAlignment="Top" ExpandDirection="Right">
             <Expander.Content >
                 <Grid>

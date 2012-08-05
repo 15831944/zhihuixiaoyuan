@@ -24,5 +24,6 @@
         </dc:Chart>
         <Image Height="196" HorizontalAlignment="Left" Margin="417,12,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="365"  />
         <my:RssReader HorizontalAlignment="Left" Margin="408,158,0,0" x:Name="rssReader1" VerticalAlignment="Top" />
+        <TextBox Height="71" HorizontalAlignment="Left" Margin="453,43,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" />
     </Grid>
 </Window>
