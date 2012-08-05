@@ -12,5 +12,6 @@ namespace WpfZhihui
     /// </summary>
     public partial class App : Application
     {
+
     }
 }
